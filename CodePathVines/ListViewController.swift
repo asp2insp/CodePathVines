@@ -8,37 +8,42 @@
 
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDataSource, UITabBarDelegate, ReactorResponder {
+class ListViewController: UIViewController, UITableViewDataSource, UITabBarDelegate, UISearchBarDelegate, ReactorResponder {
     let reactor = Reactor.instance
     
     @IBOutlet weak var BoxOfficeItem: UITabBarItem!
     @IBOutlet weak var DVDItem: UITabBarItem!
     @IBOutlet weak var tabbar: UITabBar!
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.rowHeight = 97
         reactor.responder = self
         refreshDataFromServer()
+        
     }
     
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reactor.evaluate(BOX_OR_DVDS).count
+        return reactor.evaluate(FILTERED_ITEMS).count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("asp2insp.codepathvines.movie", forIndexPath: indexPath) as! MovieViewCell
-        cell.title.text = reactor.evaluate(BOX_OR_DVDS).getIn([indexPath.row, "title"]).toSwift() as? String ?? "Unknown"
-        let url = reactor.evaluate(BOX_OR_DVDS).getIn([indexPath.row, "posters", "profile"]).toSwift() as? String ?? ""
+        cell.title.text = reactor.evaluate(FILTERED_ITEMS).getIn([indexPath.row, "title"]).toSwift() as? String ?? "Unknown"
+        let url = reactor.evaluate(FILTERED_ITEMS).getIn([indexPath.row, "posters", "profile"]).toSwift() as? String ?? ""
         let request = NSURLRequest(URL: NSURL(string:url)!)
         cell.poster.setImageWithURLRequest(request, placeholderImage: nil, success: { (request, response, freshImage) -> Void in
+            let shouldAnimate = cell.poster.image == nil || cell.poster.image != freshImage
             cell.poster.image = freshImage
-            cell.poster.alpha = 0.0
-            UIView.animateWithDuration(0.5, animations: {
-                cell.poster.alpha = 1.0
-                return
-            })
+            if shouldAnimate {
+                cell.poster.alpha = 0.0
+                UIView.animateWithDuration(0.5, animations: {
+                    cell.poster.alpha = 1.0
+                    return
+                })
+            }
             }, failure: nil)
         return cell
     }
@@ -64,6 +69,10 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let path = self.tableView.indexPathForSelectedRow()!
         reactor.dispatch("setCurrentIndex", payload: path.row)
+    }
+    
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        reactor.dispatch("updateSearch", payload: searchText)
     }
 }
 

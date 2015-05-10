@@ -17,8 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="PHs-0m-3kW">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ouv-at-xBJ" id="UVV-Ml-hsm"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="N8t-eL-CGi">
-                                <rect key="frame" x="0.0" y="48" width="600" height="503"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="asp2insp.codepathvines.movie" rowHeight="107" id="qwQ-qX-ZRm" customClass="MovieViewCell" customModule="CodePathVines" customModuleProvider="target">
@@ -93,12 +100,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="PHs-0m-3kW" firstAttribute="leading" secondItem="qrn-Pg-AvV" secondAttribute="leadingMargin" constant="-16" id="0eS-QW-51v"/>
                             <constraint firstItem="8d1-l2-CrN" firstAttribute="top" secondItem="TiY-bj-4pU" secondAttribute="bottom" id="2Bv-PM-QGB"/>
                             <constraint firstItem="TiY-bj-4pU" firstAttribute="top" secondItem="N8t-eL-CGi" secondAttribute="bottom" id="3Wt-fb-0qD"/>
+                            <constraint firstItem="PHs-0m-3kW" firstAttribute="top" secondItem="N8t-eL-CGi" secondAttribute="top" id="8X9-Xn-WvC"/>
                             <constraint firstItem="N8t-eL-CGi" firstAttribute="top" secondItem="P9s-Zf-vcd" secondAttribute="bottom" constant="-16" id="HkD-kY-Jv5"/>
+                            <constraint firstItem="PHs-0m-3kW" firstAttribute="top" secondItem="P9s-Zf-vcd" secondAttribute="bottom" id="Mby-hM-Kdd"/>
                             <constraint firstItem="TiY-bj-4pU" firstAttribute="leading" secondItem="qrn-Pg-AvV" secondAttribute="leadingMargin" constant="-16" id="NAL-ax-QTu"/>
                             <constraint firstItem="8d1-l2-CrN" firstAttribute="top" secondItem="N8t-eL-CGi" secondAttribute="bottom" id="Nrs-GB-tBF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TiY-bj-4pU" secondAttribute="trailing" constant="-16" id="RCE-3U-iXq"/>
+                            <constraint firstItem="N8t-eL-CGi" firstAttribute="top" secondItem="PHs-0m-3kW" secondAttribute="bottom" id="mBR-oo-Uo0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PHs-0m-3kW" secondAttribute="trailing" constant="-16" id="nuR-CN-vcH"/>
                             <constraint firstItem="N8t-eL-CGi" firstAttribute="top" secondItem="P9s-Zf-vcd" secondAttribute="bottom" constant="-16" id="yZR-RE-MD3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="N8t-eL-CGi" secondAttribute="trailing" constant="-16" id="z2J-ZJ-1jW"/>
                             <constraint firstItem="N8t-eL-CGi" firstAttribute="leading" secondItem="qrn-Pg-AvV" secondAttribute="leadingMargin" constant="-16" id="zid-YA-JCy"/>
@@ -106,6 +118,8 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="HkD-kY-Jv5"/>
+                                <exclude reference="yZR-RE-MD3"/>
+                                <exclude reference="8X9-Xn-WvC"/>
                                 <exclude reference="Nrs-GB-tBF"/>
                             </mask>
                         </variation>
@@ -166,7 +180,6 @@
         <scene sceneID="PPU-jf-jUU">
             <objects>
                 <navigationController title="Browse" automaticallyAdjustsScrollViewInsets="NO" id="7rw-TU-2fC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="AAH-lC-OdP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -185,6 +198,5 @@
     <resources>
         <image name="boxoffice.png" width="32" height="32"/>
         <image name="dvd.png" width="32" height="32"/>
-        <image name="first" width="30" height="30"/>
     </resources>
 </document>

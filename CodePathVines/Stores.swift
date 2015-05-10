@@ -65,7 +65,7 @@ public let BOX_OR_DVDS = Getter(keyPath: [CURRENT_CATEGORY, "data"], withFunc: {
 public let FILTERED_ITEMS = Getter(keyPath: [BOX_OR_DVDS, "ui", "searchTerm"], withFunc: {(args) -> Immutable.State in
     let filterTerm = args[1].toSwift() as! String
     return args[0].filter({(movie) -> Bool in
-        return count(filterTerm) > 0 && (movie.getIn(["title"]).toSwift() as! String).rangeOfString(filterTerm) != nil
+        return count(filterTerm) == 0 || (movie.getIn(["title"]).toSwift() as! NSString).localizedCaseInsensitiveContainsString(filterTerm)
     })
 })
 public let CURRENT_ITEM = Getter(keyPath: [BOX_OR_DVDS, "ui", "currentIndex"], withFunc: {(args) -> Immutable.State in
