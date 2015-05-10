@@ -44,7 +44,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
                     return
                 })
             }
-            }, failure: nil)
+            }, failure: { (request, response, error) -> Void in
+                cell.poster.image = nil
+        })
         return cell
     }
     

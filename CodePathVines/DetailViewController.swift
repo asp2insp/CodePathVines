@@ -14,6 +14,9 @@ class DetailViewController: UIViewController, ReactorResponder {
 
     @IBOutlet weak var hiResImage: UIImageView!
     @IBOutlet weak var lowResImage: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+
+    @IBOutlet weak var synopsis: UITextView!
     let reactor = Reactor.instance
 
     override func viewWillAppear(animated: Bool) {
@@ -24,7 +27,8 @@ class DetailViewController: UIViewController, ReactorResponder {
     
     
     func onUpdate() {
-        let fullUrl = reactor.evaluate(CURRENT_ITEM).getIn(["posters", "original"]).toSwift() as! String
+        let movie = reactor.evaluate(CURRENT_ITEM)
+        let fullUrl = movie.getIn(["posters", "original"]).toSwift() as! String
         let index = fullUrl.rangeOfString("dkpu1ddg7pbsk")?.startIndex ?? fullUrl.startIndex
         let origUrl = fullUrl.substringFromIndex(index)
         self.hiResImage.alpha = 0.0
@@ -37,5 +41,7 @@ class DetailViewController: UIViewController, ReactorResponder {
                 return
             })
         }, failure: nil)
+        self.movieTitle.text = movie.getIn(["title"]).toSwift() as? String ?? "Unknown"
+        self.synopsis.text = movie.getIn(["synopsis"]).toSwift() as? String ?? "Unknown"
     }
 }
