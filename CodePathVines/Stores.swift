@@ -58,7 +58,6 @@ public class UIStateStore : Store {
 }
 
 public let CURRENT_CATEGORY = Getter(keyPath: ["ui", "currentCategory"])
-public let CURRENT_INDEX = Getter(keyPath: ["ui", "currentIndex"])
 public let BOX_OR_DVDS = Getter(keyPath: [CURRENT_CATEGORY, "data"], withFunc: { (args) -> Immutable.State in
     let categoryName = args[0].toSwift() as! String
     return args[1].getIn([categoryName, "movies"])
@@ -68,4 +67,8 @@ public let FILTERED_ITEMS = Getter(keyPath: [BOX_OR_DVDS, "ui", "searchTerm"], w
     return args[0].filter({(movie) -> Bool in
         return count(filterTerm) > 0 && (movie.getIn(["title"]).toSwift() as! String).rangeOfString(filterTerm) != nil
     })
+})
+public let CURRENT_ITEM = Getter(keyPath: [BOX_OR_DVDS, "ui", "currentIndex"], withFunc: {(args) -> Immutable.State in
+    let index = args[1].toSwift() as! Int
+    return args[0].getIn([index])
 })
