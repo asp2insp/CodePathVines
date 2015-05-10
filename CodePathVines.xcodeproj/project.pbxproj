@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		24DFE3CCAEB67708B2CCF037 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B768064E80BFF983F540F79C /* libPods.a */; };
+		FE216C871AFED7E900C3C3D0 /* Stores.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C861AFED7E900C3C3D0 /* Stores.swift */; };
+		FE216C911AFEDABA00C3C3D0 /* Evaluator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C8C1AFEDABA00C3C3D0 /* Evaluator.swift */; };
+		FE216C921AFEDABA00C3C3D0 /* Getter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C8D1AFEDABA00C3C3D0 /* Getter.swift */; };
+		FE216C931AFEDABA00C3C3D0 /* Immutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C8E1AFEDABA00C3C3D0 /* Immutable.swift */; };
+		FE216C941AFEDABA00C3C3D0 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C8F1AFEDABA00C3C3D0 /* Reactor.swift */; };
+		FE216C951AFEDABA00C3C3D0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C901AFEDABA00C3C3D0 /* Store.swift */; };
 		FED4F77D1AF8614900699B89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4F77C1AF8614900699B89 /* AppDelegate.swift */; };
-		FED4F77F1AF8614900699B89 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4F77E1AF8614900699B89 /* FirstViewController.swift */; };
+		FED4F77F1AF8614900699B89 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4F77E1AF8614900699B89 /* ListViewController.swift */; };
 		FED4F7811AF8614900699B89 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4F7801AF8614900699B89 /* SecondViewController.swift */; };
 		FED4F7841AF8614900699B89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FED4F7821AF8614900699B89 /* Main.storyboard */; };
 		FED4F7861AF8614900699B89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED4F7851AF8614900699B89 /* Images.xcassets */; };
@@ -31,10 +37,16 @@
 		800770AE98A28A48F04C4B2D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B768064E80BFF983F540F79C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F83F64B4851338A5EFDC7065 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FE216C861AFED7E900C3C3D0 /* Stores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stores.swift; sourceTree = "<group>"; };
+		FE216C8C1AFEDABA00C3C3D0 /* Evaluator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Evaluator.swift; sourceTree = "<group>"; };
+		FE216C8D1AFEDABA00C3C3D0 /* Getter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Getter.swift; sourceTree = "<group>"; };
+		FE216C8E1AFEDABA00C3C3D0 /* Immutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Immutable.swift; sourceTree = "<group>"; };
+		FE216C8F1AFEDABA00C3C3D0 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
+		FE216C901AFEDABA00C3C3D0 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		FED4F7771AF8614900699B89 /* CodePathVines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodePathVines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED4F77B1AF8614900699B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED4F77C1AF8614900699B89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FED4F77E1AF8614900699B89 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		FED4F77E1AF8614900699B89 /* ListViewController.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		FED4F7801AF8614900699B89 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		FED4F7831AF8614900699B89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FED4F7851AF8614900699B89 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -80,6 +92,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FE216C961AFEDADF00C3C3D0 /* Nuclear */ = {
+			isa = PBXGroup;
+			children = (
+				FE216C8C1AFEDABA00C3C3D0 /* Evaluator.swift */,
+				FE216C8D1AFEDABA00C3C3D0 /* Getter.swift */,
+				FE216C8E1AFEDABA00C3C3D0 /* Immutable.swift */,
+				FE216C8F1AFEDABA00C3C3D0 /* Reactor.swift */,
+				FE216C901AFEDABA00C3C3D0 /* Store.swift */,
+			);
+			name = Nuclear;
+			sourceTree = "<group>";
+		};
 		FED4F76E1AF8614800699B89 = {
 			isa = PBXGroup;
 			children = (
@@ -103,13 +127,15 @@
 		FED4F7791AF8614900699B89 /* CodePathVines */ = {
 			isa = PBXGroup;
 			children = (
+				FE216C961AFEDADF00C3C3D0 /* Nuclear */,
 				FED4F77C1AF8614900699B89 /* AppDelegate.swift */,
-				FED4F77E1AF8614900699B89 /* FirstViewController.swift */,
+				FED4F77E1AF8614900699B89 /* ListViewController.swift */,
 				FED4F7801AF8614900699B89 /* SecondViewController.swift */,
 				FED4F7821AF8614900699B89 /* Main.storyboard */,
 				FED4F7851AF8614900699B89 /* Images.xcassets */,
 				FED4F7871AF8614900699B89 /* LaunchScreen.xib */,
 				FED4F77A1AF8614900699B89 /* Supporting Files */,
+				FE216C861AFED7E900C3C3D0 /* Stores.swift */,
 			);
 			path = CodePathVines;
 			sourceTree = "<group>";
@@ -274,9 +300,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE216C941AFEDABA00C3C3D0 /* Reactor.swift in Sources */,
+				FE216C911AFEDABA00C3C3D0 /* Evaluator.swift in Sources */,
+				FE216C931AFEDABA00C3C3D0 /* Immutable.swift in Sources */,
+				FE216C951AFEDABA00C3C3D0 /* Store.swift in Sources */,
 				FED4F7811AF8614900699B89 /* SecondViewController.swift in Sources */,
 				FED4F77D1AF8614900699B89 /* AppDelegate.swift in Sources */,
-				FED4F77F1AF8614900699B89 /* FirstViewController.swift in Sources */,
+				FED4F77F1AF8614900699B89 /* ListViewController.swift in Sources */,
+				FE216C921AFEDABA00C3C3D0 /* Getter.swift in Sources */,
+				FE216C871AFED7E900C3C3D0 /* Stores.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +441,7 @@
 				INFOPLIST_FILE = CodePathVines/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -422,6 +455,7 @@
 				INFOPLIST_FILE = CodePathVines/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};
