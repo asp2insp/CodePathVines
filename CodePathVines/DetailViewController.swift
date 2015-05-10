@@ -25,7 +25,7 @@ class DetailViewController: UIViewController, ReactorResponder {
         let fullUrl = reactor.evaluate(CURRENT_ITEM).getIn(["posters", "original"]).toSwift() as! String
         let index = fullUrl.rangeOfString("dkpu1ddg7pbsk")?.startIndex ?? fullUrl.startIndex
         let origUrl = fullUrl.substringFromIndex(index)
-        println(origUrl)
+        image.setImageWithURL(NSURL(string:fullUrl))
         image.setImageWithURL(NSURL(string:"http://\(origUrl)"))
     }
 }
