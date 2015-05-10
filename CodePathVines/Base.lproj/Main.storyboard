@@ -2,12 +2,13 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--List View Controller-->
         <scene sceneID="gTb-FX-unQ">
             <objects>
-                <tableViewController id="Kyc-SP-v2q" sceneMemberID="viewController">
+                <tableViewController id="Kyc-SP-v2q" customClass="ListViewController" customModule="CodePathVines" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="9gz-qK-QwB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -17,7 +18,39 @@
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qwQ-qX-ZRm" id="ndT-iJ-05i">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kL3-a9-RyT">
+                                            <rect key="frame" x="16" y="-94" width="568" height="100"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="XJj-3g-u0h"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHG-H9-vtC">
+                                            <rect key="frame" x="16" y="6" width="568" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="JHG-H9-vtC" secondAttribute="trailing" constant="8" id="T3f-Go-99D"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kL3-a9-RyT" secondAttribute="trailing" constant="8" id="hfU-bM-6da"/>
+                                        <constraint firstItem="kL3-a9-RyT" firstAttribute="leading" secondItem="ndT-iJ-05i" secondAttribute="leadingMargin" constant="8" id="jzJ-iF-2Yc"/>
+                                        <constraint firstItem="JHG-H9-vtC" firstAttribute="top" secondItem="kL3-a9-RyT" secondAttribute="bottom" id="kBU-gQ-Khh"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="JHG-H9-vtC" secondAttribute="bottom" constant="8" id="msc-Ba-POW"/>
+                                        <constraint firstItem="JHG-H9-vtC" firstAttribute="leading" secondItem="ndT-iJ-05i" secondAttribute="leadingMargin" constant="8" id="poR-xV-hKA"/>
+                                        <constraint firstItem="kL3-a9-RyT" firstAttribute="top" secondItem="ndT-iJ-05i" secondAttribute="topMargin" constant="8" id="rW9-8u-95E"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="rW9-8u-95E"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="poster" destination="kL3-a9-RyT" id="31W-xf-STP"/>
+                                    <outlet property="title" destination="JHG-H9-vtC" id="k7j-Jd-Z6L"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

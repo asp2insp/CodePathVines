@@ -22,6 +22,7 @@ public class Reactor {
             let newState = store.handle(prevState, action: action, payload: payload)
             self.stateMap = self.stateMap.setIn([id], withValue: newState)
         }
+        self.responder?.onUpdate()
     }
     
     // Add a new store to the reactor
@@ -37,6 +38,7 @@ public class Reactor {
             let resetState = store.handleReset(prevState)
             self.stateMap = self.stateMap.setIn([id], withValue: resetState)
         }
+        self.responder?.onUpdate()
     }
     
     // Evaluate the given getter and return the immutable state
@@ -49,7 +51,13 @@ public class Reactor {
         return evaluate(getter).toSwift()
     }
     
+    var responder : ReactorResponder?
+    
     // TODO Add binding
     // TODO Add autobinding
     // TODO Add caching for autobinding
+}
+
+public protocol ReactorResponder {
+    func onUpdate()
 }

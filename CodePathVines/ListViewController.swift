@@ -8,30 +8,35 @@
 
 import UIKit
 
-class ListViewController: UITableViewController {
+class ListViewController: UITableViewController, ReactorResponder {
+    let reactor = Reactor.instance
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.setupApi()
+        reactor.responder = self
+        refreshDataFromServer()
     }
-    
-    func setupApi() {
-        // TODO: Load from network here
-    }
-    
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return reactor.evaluate(BOX_OR_DVDS).count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("asp2insp.codepathvines.movie", forIndexPath: indexPath) as! MovieViewCell
-        
-//        cell.displayImage.setImageWithURL(self.feedUrls[indexPath.row] ?? nil)
-        
+        cell.title.text = reactor.evaluate(BOX_OR_DVDS).getIn([indexPath.row, "title"]).toSwift() as? String ?? "Unknown"
+        let url = reactor.evaluate(BOX_OR_DVDS).getIn([indexPath.row, "posters", "profile"]).toSwift() as? String ?? ""
+        cell.poster.setImageWithURL(NSURL(string:url))
         return cell
+    }
+    
+    func onUpdate() {
+        self.tableView.reloadData()
     }
 }
 
 // Custom cell
 class MovieViewCell:UITableViewCell {
     
+    @IBOutlet weak var poster: UIImageView!
+    @IBOutlet weak var title: UILabel!
 }

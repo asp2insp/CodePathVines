@@ -14,6 +14,7 @@
 		FE216C931AFEDABA00C3C3D0 /* Immutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C8E1AFEDABA00C3C3D0 /* Immutable.swift */; };
 		FE216C941AFEDABA00C3C3D0 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C8F1AFEDABA00C3C3D0 /* Reactor.swift */; };
 		FE216C951AFEDABA00C3C3D0 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C901AFEDABA00C3C3D0 /* Store.swift */; };
+		FE216C981AFF19F900C3C3D0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE216C971AFF19F900C3C3D0 /* Network.swift */; };
 		FED4F77D1AF8614900699B89 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4F77C1AF8614900699B89 /* AppDelegate.swift */; };
 		FED4F77F1AF8614900699B89 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4F77E1AF8614900699B89 /* ListViewController.swift */; };
 		FED4F7811AF8614900699B89 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4F7801AF8614900699B89 /* SecondViewController.swift */; };
@@ -43,6 +44,8 @@
 		FE216C8E1AFEDABA00C3C3D0 /* Immutable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Immutable.swift; sourceTree = "<group>"; };
 		FE216C8F1AFEDABA00C3C3D0 /* Reactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
 		FE216C901AFEDABA00C3C3D0 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		FE216C971AFF19F900C3C3D0 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		FE216C991AFF1A2B00C3C3D0 /* CodePathVines-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CodePathVines-Bridging-Header.h"; sourceTree = "<group>"; };
 		FED4F7771AF8614900699B89 /* CodePathVines.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodePathVines.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED4F77B1AF8614900699B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED4F77C1AF8614900699B89 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +139,8 @@
 				FED4F7871AF8614900699B89 /* LaunchScreen.xib */,
 				FED4F77A1AF8614900699B89 /* Supporting Files */,
 				FE216C861AFED7E900C3C3D0 /* Stores.swift */,
+				FE216C971AFF19F900C3C3D0 /* Network.swift */,
+				FE216C991AFF1A2B00C3C3D0 /* CodePathVines-Bridging-Header.h */,
 			);
 			path = CodePathVines;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE216C981AFF19F900C3C3D0 /* Network.swift in Sources */,
 				FE216C941AFEDABA00C3C3D0 /* Reactor.swift in Sources */,
 				FE216C911AFEDABA00C3C3D0 /* Evaluator.swift in Sources */,
 				FE216C931AFEDABA00C3C3D0 /* Immutable.swift in Sources */,
@@ -436,11 +442,14 @@
 			baseConfigurationReference = 800770AE98A28A48F04C4B2D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = CodePathVines/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodePathVines/CodePathVines-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -450,11 +459,13 @@
 			baseConfigurationReference = F83F64B4851338A5EFDC7065 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				INFOPLIST_FILE = CodePathVines/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CodePathVines/CodePathVines-Bridging-Header.h";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

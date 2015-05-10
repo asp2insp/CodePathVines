@@ -8,11 +8,11 @@
 
 import Foundation
 
-let IDENTITY = {(args: [Immutable.State]) -> Immutable.State in
+public let IDENTITY = {(args: [Immutable.State]) -> Immutable.State in
     return args[0]
 }
 
-class Getter {
+public class Getter {
     let keyPath : [AnyObject]
     let compute : ([Immutable.State]) -> Immutable.State
     
