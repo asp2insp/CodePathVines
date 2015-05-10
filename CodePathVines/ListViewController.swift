@@ -31,7 +31,15 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
         let cell = tableView.dequeueReusableCellWithIdentifier("asp2insp.codepathvines.movie", forIndexPath: indexPath) as! MovieViewCell
         cell.title.text = reactor.evaluate(BOX_OR_DVDS).getIn([indexPath.row, "title"]).toSwift() as? String ?? "Unknown"
         let url = reactor.evaluate(BOX_OR_DVDS).getIn([indexPath.row, "posters", "profile"]).toSwift() as? String ?? ""
-        cell.poster.setImageWithURL(NSURL(string:url))
+        let request = NSURLRequest(URL: NSURL(string:url)!)
+        cell.poster.setImageWithURLRequest(request, placeholderImage: nil, success: { (request, response, freshImage) -> Void in
+            cell.poster.image = freshImage
+            cell.poster.alpha = 0.0
+            UIView.animateWithDuration(0.5, animations: {
+                cell.poster.alpha = 1.0
+                return
+            })
+            }, failure: nil)
         return cell
     }
     

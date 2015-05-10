@@ -11,7 +11,9 @@ import Foundation
 import UIKit
 
 class DetailViewController: UIViewController, ReactorResponder {
-    @IBOutlet weak var image: UIImageView!
+
+    @IBOutlet weak var hiResImage: UIImageView!
+    @IBOutlet weak var lowResImage: UIImageView!
     let reactor = Reactor.instance
 
     override func viewWillAppear(animated: Bool) {
@@ -25,7 +27,15 @@ class DetailViewController: UIViewController, ReactorResponder {
         let fullUrl = reactor.evaluate(CURRENT_ITEM).getIn(["posters", "original"]).toSwift() as! String
         let index = fullUrl.rangeOfString("dkpu1ddg7pbsk")?.startIndex ?? fullUrl.startIndex
         let origUrl = fullUrl.substringFromIndex(index)
-        image.setImageWithURL(NSURL(string:fullUrl))
-        image.setImageWithURL(NSURL(string:"http://\(origUrl)"))
+        self.hiResImage.alpha = 0.0
+        self.lowResImage.setImageWithURL(NSURL(string:fullUrl))
+        let request = NSURLRequest(URL: NSURL(string:"http://\(origUrl)")!)
+        self.hiResImage.setImageWithURLRequest(request, placeholderImage: nil, success: { (request, response, freshImage) -> Void in
+            self.hiResImage.image = freshImage
+            UIView.animateWithDuration(0.5, animations: {
+                self.hiResImage.alpha = 1.0
+                return
+            })
+        }, failure: nil)
     }
 }
