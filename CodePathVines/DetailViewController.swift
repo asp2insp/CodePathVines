@@ -16,7 +16,9 @@ class DetailViewController: UIViewController, ReactorResponder {
     @IBOutlet weak var lowResImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
 
+    @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var synopsis: UITextView!
+    @IBOutlet weak var receptionText: UILabel!
     let reactor = Reactor.instance
 
     override func viewWillAppear(animated: Bool) {
@@ -43,5 +45,10 @@ class DetailViewController: UIViewController, ReactorResponder {
         }, failure: nil)
         self.movieTitle.text = movie.getIn(["title"]).toSwift() as? String ?? "Unknown"
         self.synopsis.text = movie.getIn(["synopsis"]).toSwift() as? String ?? "Unknown"
+        self.ratingLabel.text = movie.getIn(["mpaa_rating"]).toSwift() as? String ?? "?"
+        
+        let criticsScore = movie.getIn(["ratings", "critics_score"]).toSwift() as! Int
+        let audienceScore = movie.getIn(["ratings", "audience_score"]).toSwift() as! Int
+        self.receptionText.text = "Critics Score: \(criticsScore)%, Audience Score: \(audienceScore)%"
     }
 }
