@@ -44,6 +44,7 @@ class DetailViewController: UIViewController, ReactorResponder {
             })
         }, failure: nil)
         self.movieTitle.text = movie.getIn(["title"]).toSwift() as? String ?? "Unknown"
+        self.title = self.movieTitle.text
         self.synopsis.text = movie.getIn(["synopsis"]).toSwift() as? String ?? "Unknown"
         self.ratingLabel.text = movie.getIn(["mpaa_rating"]).toSwift() as? String ?? "?"
         

@@ -42,7 +42,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("asp2insp.codepathvines.movie", forIndexPath: indexPath) as! MovieViewCell
-        cell.title.text = reactor.evaluate(FILTERED_ITEMS).getIn([indexPath.row, "title"]).toSwift() as? String ?? "Unknown"
+        cell.title.text = reactor.evaluate(FILTERED_ITEMS).getIn([indexPath.row, "title"]).toSwift() as? String ?? "Loading..."
         let url = reactor.evaluate(FILTERED_ITEMS).getIn([indexPath.row, "posters", "profile"]).toSwift() as? String ?? ""
         let request = NSURLRequest(URL: NSURL(string:url)!)
         cell.poster.setImageWithURLRequest(request, placeholderImage: nil, success: { (request, response, freshImage) -> Void in
@@ -70,6 +70,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
         } else {
             tabbar.selectedItem = DVDItem
         }
+        self.navigationController!.navigationBar.topItem!.title = tabbar.selectedItem?.title ?? "Loading..."
         self.tableView.reloadData()
     }
     

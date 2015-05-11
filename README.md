@@ -20,7 +20,7 @@ Time spent: `<Number of hours spent>`
 - [x] For the larger poster, load the low-res first and switch to high-res when complete.
 - [x] All images should be cached in memory and disk: Used AFNetworking cache
 - [ ] Customize the highlight and selection effect of the cell.
-- [ ] Customize the navigation bar.
+- [x] Customize the navigation bar.
 - [x] Add a tab bar for Box Office and DVD.
 - [x] Add a search bar: pretty simple implementation of searching against the existing table view data.
 

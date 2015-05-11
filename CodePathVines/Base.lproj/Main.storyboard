@@ -86,13 +86,16 @@
                                     <outlet property="dataSource" destination="ouv-at-xBJ" id="XoS-nu-vLt"/>
                                 </connections>
                             </tableView>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TiY-bj-4pU">
+                            <tabBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="TiY-bj-4pU">
                                 <rect key="frame" x="0.0" y="551" width="600" height="49"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
                                     <tabBarItem title="Box Office" image="boxoffice.png" id="rIn-Cq-7Bx"/>
                                     <tabBarItem title="DVD" image="dvd.png" id="ca8-Yn-eP7"/>
                                 </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.68851381540298462" green="0.87049341201782227" blue="0.99933785200119019" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="ouv-at-xBJ" id="uai-ox-DbB"/>
                                 </connections>
@@ -295,9 +298,10 @@
             <objects>
                 <navigationController title="Browse" automaticallyAdjustsScrollViewInsets="NO" id="7rw-TU-2fC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AAH-lC-OdP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="AAH-lC-OdP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.68851381540000001" green="0.87049341199999997" blue="0.99933785200000003" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
