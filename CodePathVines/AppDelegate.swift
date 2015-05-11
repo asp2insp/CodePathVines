@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         reactor.registerStore("data", store: MovieDataStore())
         reactor.registerStore("ui", store: UIStateStore())
         reactor.reset()
+        refreshDataFromServer()
         return true
     }
 
