@@ -27,6 +27,45 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="N8t-eL-CGi">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="JKB-zt-Syx" userLabel="NetworkNotificationView" customClass="StatusNotification" customModule="CodePathVines" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network Error!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71c-wc-ZwR">
+                                            <rect key="frame" x="0.0" y="4" width="600" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please try again in a few minutes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdZ-nY-c8b">
+                                            <rect key="frame" x="0.0" y="25" width="600" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="71c-wc-ZwR" secondAttribute="centerY" id="Bex-Ym-497"/>
+                                        <constraint firstItem="71c-wc-ZwR" firstAttribute="top" secondItem="JKB-zt-Syx" secondAttribute="top" constant="4" id="Cvd-xA-fnk"/>
+                                        <constraint firstItem="jdZ-nY-c8b" firstAttribute="leading" secondItem="JKB-zt-Syx" secondAttribute="leading" id="MSI-lE-Gbb"/>
+                                        <constraint firstItem="71c-wc-ZwR" firstAttribute="leading" secondItem="JKB-zt-Syx" secondAttribute="leading" id="OGa-Sv-D69"/>
+                                        <constraint firstAttribute="trailing" secondItem="jdZ-nY-c8b" secondAttribute="trailing" id="SM0-83-DRc"/>
+                                        <constraint firstAttribute="centerX" secondItem="71c-wc-ZwR" secondAttribute="centerX" id="Usy-Mc-VOD"/>
+                                        <constraint firstAttribute="height" id="YUY-TZ-Q1F"/>
+                                        <constraint firstAttribute="height" id="e89-Ej-6E8"/>
+                                        <constraint firstItem="jdZ-nY-c8b" firstAttribute="top" secondItem="71c-wc-ZwR" secondAttribute="bottom" id="eVw-yG-HJV"/>
+                                        <constraint firstAttribute="trailing" secondItem="71c-wc-ZwR" secondAttribute="trailing" id="fKu-CH-z9Z"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="YUY-TZ-Q1F"/>
+                                            <exclude reference="e89-Ej-6E8"/>
+                                            <exclude reference="Bex-Ym-497"/>
+                                            <exclude reference="Usy-Mc-VOD"/>
+                                        </mask>
+                                    </variation>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="asp2insp.codepathvines.movie" rowHeight="107" id="qwQ-qX-ZRm" customClass="MovieViewCell" customModule="CodePathVines" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -49,7 +88,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHG-H9-vtC">
                                                     <rect key="frame" x="67" y="16" width="517" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -67,11 +106,11 @@
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
+                                                    <exclude reference="hfU-bM-6da"/>
+                                                    <exclude reference="rW9-8u-95E"/>
                                                     <exclude reference="kBU-gQ-Khh"/>
                                                     <exclude reference="msc-Ba-POW"/>
                                                     <exclude reference="poR-xV-hKA"/>
-                                                    <exclude reference="hfU-bM-6da"/>
-                                                    <exclude reference="rW9-8u-95E"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -109,6 +148,7 @@
                             <constraint firstItem="TiY-bj-4pU" firstAttribute="leading" secondItem="qrn-Pg-AvV" secondAttribute="leadingMargin" constant="-16" id="NAL-ax-QTu"/>
                             <constraint firstItem="8d1-l2-CrN" firstAttribute="top" secondItem="N8t-eL-CGi" secondAttribute="bottom" id="Nrs-GB-tBF"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TiY-bj-4pU" secondAttribute="trailing" constant="-16" id="RCE-3U-iXq"/>
+                            <constraint firstItem="N8t-eL-CGi" firstAttribute="top" secondItem="PHs-0m-3kW" secondAttribute="bottom" id="bQj-VV-jqF"/>
                             <constraint firstItem="N8t-eL-CGi" firstAttribute="top" secondItem="PHs-0m-3kW" secondAttribute="bottom" id="mBR-oo-Uo0"/>
                             <constraint firstAttribute="trailingMargin" secondItem="PHs-0m-3kW" secondAttribute="trailing" constant="-16" id="nuR-CN-vcH"/>
                             <constraint firstItem="N8t-eL-CGi" firstAttribute="top" secondItem="P9s-Zf-vcd" secondAttribute="bottom" constant="-16" id="yZR-RE-MD3"/>
@@ -117,9 +157,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="HkD-kY-Jv5"/>
-                                <exclude reference="yZR-RE-MD3"/>
                                 <exclude reference="8X9-Xn-WvC"/>
+                                <exclude reference="HkD-kY-Jv5"/>
+                                <exclude reference="mBR-oo-Uo0"/>
+                                <exclude reference="yZR-RE-MD3"/>
                                 <exclude reference="Nrs-GB-tBF"/>
                             </mask>
                         </variation>
@@ -128,6 +169,7 @@
                     <connections>
                         <outlet property="BoxOfficeItem" destination="rIn-Cq-7Bx" id="bJV-Zf-XJU"/>
                         <outlet property="DVDItem" destination="ca8-Yn-eP7" id="cp8-No-diD"/>
+                        <outlet property="notificationView" destination="JKB-zt-Syx" id="Qu6-9R-fHl"/>
                         <outlet property="tabbar" destination="TiY-bj-4pU" id="A20-1V-4Df"/>
                         <outlet property="tableView" destination="N8t-eL-CGi" id="obF-Sk-las"/>
                     </connections>
@@ -174,7 +216,7 @@
                                     <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H8Q-Sk-7JD">
                                         <rect key="frame" x="8" y="36" width="584" height="348"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>

@@ -31,7 +31,8 @@ public class UIStateStore : Store {
             "searchTerm": "",
             "listType": "list", // list or grid
             "currentCategory": "boxoffice", // boxoffice or dvds
-            "currentIndex": 0
+            "currentIndex": 0,
+            "networkStatus": true
         ]
         return Immutable.toState(startData)
     }
@@ -54,13 +55,19 @@ public class UIStateStore : Store {
             let newIndex = payload as! Int
             return state.setIn(["currentIndex"], withValue: Immutable.toState(newIndex))
         })
+        self.on("setNetworkStatus", handler: {(state, payload, action) -> Immutable.State in
+            let newStatus = payload as! Bool
+            return state.setIn(["networkStatus"], withValue: Immutable.toState(newStatus))
+        })
     }
 }
 
 public let CURRENT_CATEGORY = Getter(keyPath: ["ui", "currentCategory"])
 public let BOX_OR_DVDS = Getter(keyPath: [CURRENT_CATEGORY, "data"], withFunc: { (args) -> Immutable.State in
     let categoryName = args[0].toSwift() as! String
-    return args[1].getIn([categoryName, "movies"])
+    return args[1].getIn([categoryName, "movies"]).map({(state, index) -> Immutable.State in
+        return state.setIn(["index"], withValue: Immutable.toState(index))
+    })
 })
 public let FILTERED_ITEMS = Getter(keyPath: [BOX_OR_DVDS, "ui", "searchTerm"], withFunc: {(args) -> Immutable.State in
     let filterTerm = args[1].toSwift() as! String
@@ -72,3 +79,4 @@ public let CURRENT_ITEM = Getter(keyPath: [BOX_OR_DVDS, "ui", "currentIndex"], w
     let index = args[1].toSwift() as! Int
     return args[0].getIn([index])
 })
+public let NETWORK_STATUS = Getter(keyPath: ["ui", "networkStatus"])

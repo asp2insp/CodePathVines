@@ -15,15 +15,26 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     @IBOutlet weak var DVDItem: UITabBarItem!
     @IBOutlet weak var tabbar: UITabBar!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var notificationView: StatusNotification!
+    var refreshControl : UIRefreshControl?
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         tableView.rowHeight = 97
         reactor.responder = self
-        refreshDataFromServer()
-        
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl!.attributedTitle = NSAttributedString(string: "Loading...")
+        self.refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refreshControl!)
+    }
+    
+    func refresh(sender: AnyObject) {
+        refreshDataFromServer()
+    }
 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return reactor.evaluate(FILTERED_ITEMS).count
@@ -35,7 +46,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
         let url = reactor.evaluate(FILTERED_ITEMS).getIn([indexPath.row, "posters", "profile"]).toSwift() as? String ?? ""
         let request = NSURLRequest(URL: NSURL(string:url)!)
         cell.poster.setImageWithURLRequest(request, placeholderImage: nil, success: { (request, response, freshImage) -> Void in
-            let shouldAnimate = cell.poster.image == nil || cell.poster.image != freshImage
+            let shouldAnimate = cell.poster.image != freshImage
             cell.poster.image = freshImage
             if shouldAnimate {
                 cell.poster.alpha = 0.0
@@ -51,6 +62,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     }
     
     func onUpdate() {
+        self.refreshControl?.endRefreshing()
+        notificationView.onUpdate()
         let currentCategory = reactor.evaluateToSwift(CURRENT_CATEGORY) as! String
         if currentCategory == "boxoffice" {
             tabbar.selectedItem = BoxOfficeItem
@@ -69,8 +82,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITabBarDeleg
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let path = self.tableView.indexPathForSelectedRow()!
-        reactor.dispatch("setCurrentIndex", payload: path.row)
+        let path = self.tableView.indexPathForSelectedRow()
+        let index = reactor.evaluate(FILTERED_ITEMS).getIn([path!.row, "index"]).toSwift() as! Int
+        reactor.dispatch("setCurrentIndex", payload: index)
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {

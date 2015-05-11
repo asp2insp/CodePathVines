@@ -22,6 +22,7 @@ public class Reactor {
             let newState = store.handle(prevState, action: action, payload: payload)
             self.stateMap = self.stateMap.setIn([id], withValue: newState)
         }
+        println("Reacting to \(action)...")
         self.responder?.onUpdate()
     }
     

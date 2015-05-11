@@ -26,6 +26,7 @@
 		FED4F7861AF8614900699B89 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FED4F7851AF8614900699B89 /* Images.xcassets */; };
 		FED4F7891AF8614900699B89 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FED4F7871AF8614900699B89 /* LaunchScreen.xib */; };
 		FED4F7951AF8614900699B89 /* CodePathVinesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED4F7941AF8614900699B89 /* CodePathVinesTests.swift */; };
+		FEEE5C7F1B003BCD009C1280 /* StatusNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEE5C7E1B003BCD009C1280 /* StatusNotification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		FED4F78E1AF8614900699B89 /* CodePathVinesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CodePathVinesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FED4F7931AF8614900699B89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED4F7941AF8614900699B89 /* CodePathVinesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodePathVinesTests.swift; sourceTree = "<group>"; };
+		FEEE5C7E1B003BCD009C1280 /* StatusNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusNotification.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				FE216C861AFED7E900C3C3D0 /* Stores.swift */,
 				FE216C971AFF19F900C3C3D0 /* Network.swift */,
 				FE216C991AFF1A2B00C3C3D0 /* CodePathVines-Bridging-Header.h */,
+				FEEE5C7E1B003BCD009C1280 /* StatusNotification.swift */,
 			);
 			path = CodePathVines;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				FE216C931AFEDABA00C3C3D0 /* Immutable.swift in Sources */,
 				FE216C951AFEDABA00C3C3D0 /* Store.swift in Sources */,
 				FED4F77D1AF8614900699B89 /* AppDelegate.swift in Sources */,
+				FEEE5C7F1B003BCD009C1280 /* StatusNotification.swift in Sources */,
 				FED4F77F1AF8614900699B89 /* ListViewController.swift in Sources */,
 				FE216CAD1AFF4CCD00C3C3D0 /* DetailViewController.swift in Sources */,
 				FE216C921AFEDABA00C3C3D0 /* Getter.swift in Sources */,
