@@ -28,7 +28,7 @@
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="asp2insp.codepathvines.movie" rowHeight="107" id="qwQ-qX-ZRm" customClass="MovieViewCell" customModule="CodePathVines" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="asp2insp.codepathvines.movie" rowHeight="107" id="qwQ-qX-ZRm" customClass="MovieViewCell" customModule="CodePathVines" customModuleProvider="target">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qwQ-qX-ZRm" id="ndT-iJ-05i">
                                             <autoresizingMask key="autoresizingMask"/>

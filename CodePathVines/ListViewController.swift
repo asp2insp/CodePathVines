@@ -98,4 +98,13 @@ class MovieViewCell:UITableViewCell {
     
     @IBOutlet weak var poster: UIImageView!
     @IBOutlet weak var title: UILabel!
+    
+    override func setHighlighted(highlighted: Bool, animated: Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        if highlighted {
+            self.backgroundColor = UIColor(red: 0.7333, green: 0.8902, blue: 1.0000, alpha: 1.0)
+        } else {
+            self.backgroundColor = UIColor.whiteColor()
+        }
+    }
 }
